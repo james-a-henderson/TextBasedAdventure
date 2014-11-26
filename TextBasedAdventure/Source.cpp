@@ -12,7 +12,7 @@ int main()
 	while (game.getExit() == false)
 	{
 		string input;
-		cin >> input;
+		getline(cin, input);
 
 		processInput(input, &game);
 	}
