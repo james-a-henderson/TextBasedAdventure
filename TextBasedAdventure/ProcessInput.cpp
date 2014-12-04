@@ -1,6 +1,9 @@
 #include <string>
 #include <iostream>
+#ifndef GameState_h
+#define GameState_h
 #include "GameState.h"
+#endif
 #include <boost/algorithm/string.hpp>
 #include <vector>
 using namespace std;

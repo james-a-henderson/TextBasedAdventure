@@ -1,5 +1,9 @@
 #include <string>
+
+#ifndef GameState_h
+#define GameState_h
 #include "GameState.h"
+#endif
 using namespace std;
 
 

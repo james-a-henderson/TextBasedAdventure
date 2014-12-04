@@ -1,35 +1,18 @@
-#include "Item.h"
 #include <string>
-using namespace std;
+#ifndef Item_h
+#define Item_h
+#include "Item.h"
+#endif
+
+#ifndef GameObject_h
+#define GameObject_h
+#include "GameObject.h"
+#endif
+
+#include "GameState.h"
+
+/*
+Represents an item that can be picked up and used by the player
 
 
-Item::Item(string nItemName, string nDescription)
-{
-	itemName = nItemName;
-	description = nDescription;
-}
-
-string Item::getDescription()
-{
-	return description;
-}
-
-string Item::getItemName()
-{
-	return itemName;
-}
-
-void Item::setItemName(string nItemName)
-{
-	itemName = nItemName;
-}
-
-void Item::setDescription(string nDescription)
-{
-	description = nDescription;
-}
-
-
-Item::~Item()
-{
-}
+*/
