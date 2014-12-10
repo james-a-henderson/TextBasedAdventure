@@ -1,5 +1,7 @@
 Create Basic Room
 
+Change item & gameobject to interface format
+
 Add item pickup and drop
 
 test room and item

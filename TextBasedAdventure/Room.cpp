@@ -14,3 +14,23 @@
 #endif
 
 #include <string>
+#include <vector>
+
+/*
+Represents a basic room entity
+*/
+
+Room::Room(string sName, string sDescription, vector<string>sCallStrings)
+{
+	callStrings = sCallStrings;
+	roomName = sName;
+	description = sDescription;
+
+}
+
+void Room::addObject(GameObject o)
+{
+
+	roomObjects.push_back(o);
+}
+
