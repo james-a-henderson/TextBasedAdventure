@@ -13,7 +13,7 @@ using namespace std;
 class GameState
 {
 private: bool exit; //default false
-		 vector<Item> inventory; //default empty
+		 //vector<Item> inventory; //default empty
 		 
 public:
 	GameState();

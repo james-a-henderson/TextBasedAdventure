@@ -1,20 +1,33 @@
 #include <string>
-#ifndef GameObject_h
-#define GameObject_h
-#include "GameObject.h"
+#include <vector>
+
+#ifndef GameState_h
+#define GameState_h
+#include "GameState.h"
 #endif
 
-class Item : public GameObject
+using namespace std;
+class Item
 {
 protected:
-	string pickUpText;
-	string dropText;
-	bool pickUpable;
-	bool dropable;
+	string pickUpText; //text when item is picked up
+	string dropText; //text when item is dropped
+	bool pickUpable; //can pick up item and put it in inventory
+	bool dropable; //can drop the item from inventory
+	string itemName; //name of item (for use in code)
+	string description; //description of the item
+	vector<string> callStrings; //anything that the player can call the item
 
 public:
+	Item(string nItemName, string nDescription, vector<string> sCallStrings);
 	Item(string sName, string sDescription, string sPickUpText, string sDropText,bool sPickUpable, bool sDropable);
 	void pickup();
 	void drop();
-	void use(GameObject useWith);
+	void use(Item useWith);
+	string getItemName();
+	string getDescription();
+	vector<string> getCallStrings();
+	void setItemName(string nName);
+	void setDescription(string nDescription);
+	void look();
 };

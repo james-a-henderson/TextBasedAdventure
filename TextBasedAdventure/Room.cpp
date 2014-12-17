@@ -28,9 +28,5 @@ Room::Room(string sName, string sDescription, vector<string>sCallStrings)
 
 }
 
-void Room::addObject(GameObject o)
-{
 
-	roomObjects.push_back(o);
-}
 
