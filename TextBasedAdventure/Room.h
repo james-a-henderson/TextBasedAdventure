@@ -12,6 +12,7 @@ protected:
 	string roomName;
 	string description;
 	vector<string> callStrings;
+	vector<Item> roomItems;
 public:
 	Room(string sName, string sDescription, vector<string> sCallStrings);
 	void removeObject(string objectName);
@@ -20,4 +21,5 @@ public:
 	string getDescription();
 	void setRoomName(string nName);
 	void setDescription(string nDescription);
+	
 };

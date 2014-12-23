@@ -4,6 +4,12 @@
 #define GameState_h
 #include "GameState.h"
 #endif
+
+#ifndef Item_h
+#define Item_h
+#include "Item.h"
+#endif
+
 #include <vector>
 #include <string>
 
@@ -18,6 +24,8 @@ int main()
 	string testDescription = "A test Item";
 	vector<string> testVec{"Test", "test item"};
 	Item testItem(testName, testDescription, testVec);
+	testItem.addToInventory(&game);
+	game.viewInventory();
 
 	testItem.look();
 

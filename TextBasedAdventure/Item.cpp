@@ -7,14 +7,9 @@
 #include "Item.h"
 #endif
 
-#ifndef GameState_h
-#define GameState_h
-#include "GameState.h"
-#endif
-
 using namespace std;
 /*
-Represents an item that can be picked up and used by the player
+Represents any item that can be interacted with in the game world
 
 
 */
@@ -47,9 +42,19 @@ void Item::setDescription(string nDescription)
 }
 
 /*
-displays the description of the item when the player types "look at [itemName]
+displays the description of the item when the player types "look at [itemName]"
 */
 void Item::look()
 {
 	cout << description << '\n';
+}
+
+/*
+This is for when an item is directly added to the player's inventory
+
+Do NOT use when picking up an item from the ground (use Item::pickup instead)
+*/
+void Item::addToInventory(GameState *game)
+{
+	game->addItem(this);
 }

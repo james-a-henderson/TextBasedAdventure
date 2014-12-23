@@ -6,6 +6,7 @@
 #include "GameState.h"
 #endif
 
+class GameState;
 using namespace std;
 class Item
 {
@@ -21,8 +22,9 @@ protected:
 public:
 	Item(string nItemName, string nDescription, vector<string> sCallStrings);
 	Item(string sName, string sDescription, string sPickUpText, string sDropText,bool sPickUpable, bool sDropable);
-	void pickup();
-	void drop();
+	void addToInventory(GameState * game);
+	void pickup(GameState *game);
+	void drop(GameState *game);
 	void use(Item useWith);
 	string getItemName();
 	string getDescription();
