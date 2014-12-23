@@ -15,18 +15,24 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 /*
 Represents a basic room entity
 */
 
-Room::Room(string sName, string sDescription, vector<string>sCallStrings)
+Room::Room(string sName, string sDescription)
 {
-	callStrings = sCallStrings;
 	roomName = sName;
 	description = sDescription;
-
 }
 
+string Room::getRoomName()
+{
+	return roomName;
+}
 
-
+void Room::look()
+{
+	cout << description << '\n';
+}

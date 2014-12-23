@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #ifndef GameState_h
 #define GameState_h
 #include "GameState.h"
@@ -8,6 +9,11 @@
 #ifndef Item_h
 #define Item_h
 #include "Item.h"
+#endif
+
+#ifndef Room_h
+#define Room_h
+#include "Room.h"
 #endif
 
 #include <vector>
@@ -27,7 +33,7 @@ int main()
 	testItem.addToInventory(&game);
 	game.viewInventory();
 
-	testItem.look();
+	game.getCurrentRoom()->look();
 
 	while (game.getExit() == false)
 	{

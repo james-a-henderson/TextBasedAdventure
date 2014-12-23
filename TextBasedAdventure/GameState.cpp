@@ -5,7 +5,10 @@
 #define GameState_h
 #include "GameState.h"
 #endif
+
+#include <boost/algorithm/string.hpp>
 using namespace std;
+
 
 
 //Includes variables that record all parts of the game state
@@ -13,6 +16,12 @@ using namespace std;
 GameState::GameState()
 {
 	exit = false;
+	//add all rooms here
+	//ROOM NAMES MUST BE UNIQUE!!!
+	roomList.push_back(Room("A Name", "A Description"));
+	roomList.push_back(Room("Another Room", "Some Description"));
+
+	currentRoom = &roomList.front();
 }
 
 //gets the value of exit
@@ -48,4 +57,11 @@ void GameState::viewInventory()
 		cout << inventory.at(i).getItemName() << '\n';
 	}
 }
+
+Room* GameState::getCurrentRoom()
+{
+	return currentRoom;
+}
+
+
 
