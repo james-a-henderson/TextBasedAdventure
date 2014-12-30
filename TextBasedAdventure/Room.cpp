@@ -13,6 +13,7 @@
 #include "GameObject.h"
 #endif
 
+#include <boost/algorithm/string.hpp>
 #include <string>
 #include <vector>
 #include <iostream>
@@ -25,6 +26,14 @@ Room::Room(string sName, string sDescription)
 {
 	roomName = sName;
 	description = sDescription;
+	connectedRoom = "";
+}
+
+Room::Room(string sName, string sDescription, string sConnectedRoom)
+{
+	roomName = sName;
+	description = sDescription;
+	connectedRoom = sConnectedRoom;
 }
 
 string Room::getRoomName()
@@ -35,4 +44,21 @@ string Room::getRoomName()
 void Room::look()
 {
 	cout << description << '\n';
+}
+
+
+void Room::exit(string command, GameState *game)
+{
+	if (boost::iequals(command, "a name"))
+	{
+		game->setCurrentRoom("A Name");
+	}
+	else if (boost::iequals(command, "another room"))
+	{
+		game->setCurrentRoom("Another Room");
+	}
+	else if (boost::iequals(command, "switch"))
+	{
+		game->setCurrentRoom(connectedRoom);
+	}
 }

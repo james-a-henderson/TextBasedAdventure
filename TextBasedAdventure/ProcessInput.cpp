@@ -15,11 +15,17 @@ using namespace std;
 When processing an input,
 use this format for checking if a specific word was inputted:
 
-else if(boost::iequals(inputVec.at(wordNum), word)
+else if(boost::iequals(inputVec.at(wordNum), word))
 
 where wordNum is the specific word needing to be processed
-(0 for first word, 1 for second word, ect)
+(0 for first word, 1 for second word, etc)
 and word is the word that the input is being checked against
+
+if wordNum is > 0, first check that inputVec is big enough
+
+format
+else if(inputVec.size() > (wordNum + 1) && boost::iequals(inputVec.at(wordNum), word))
+
 **exception: use only if specific case doesn't matter. If case does matter, use:
 else if(inputVec.at(wordNum) == word)
 
@@ -58,10 +64,20 @@ void processInput(string input, GameState * game)
 		else
 			cout << "You do not know how to jump " << inputVec.at(1) << " style.\n";
 	}
+
+	else if (boost::iequals(inputVec.at(0), "look"))
+	{
+		game->getCurrentRoom()->look();
+	}
+
+	else if (boost::iequals(inputVec.at(0), "switch"))
+	{
+		game->getCurrentRoom()->exit("switch", game);
+	}
+	
 	//default case. If input does not match any specific case, this executes.
 	else
 	{
-		//prints out statement and input
-		cout << "You do not know how to " << input << '\n';
+		cout << "You do not know how to " << input << ".\n";
 	}
 }

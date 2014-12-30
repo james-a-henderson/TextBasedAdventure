@@ -18,8 +18,8 @@ GameState::GameState()
 	exit = false;
 	//add all rooms here
 	//ROOM NAMES MUST BE UNIQUE!!!
-	roomList.push_back(Room("A Name", "A Description"));
-	roomList.push_back(Room("Another Room", "Some Description"));
+	roomList.push_back(Room("A Name", "A Description", "Another Room"));
+	roomList.push_back(Room("Another Room", "Some Description", "A Name"));
 
 	currentRoom = &roomList.front();
 }
@@ -64,4 +64,32 @@ Room* GameState::getCurrentRoom()
 }
 
 
+/*
+returns a pointer containing a room with the name roomName
+if room cannot be found, returns null
+*/
+Room* GameState::getRoom(string roomName)
+{
+	for (vector<string>::size_type i = 0; i != roomList.size(); i++)
+	{
+		if (roomList.at(i).getRoomName() == roomName)
+		{
+			return &roomList.at(i);
+		}
+	}
+
+	return NULL;
+}
+
+
+/*
+sets the current room to the room with the name roomName
+*/
+void GameState::setCurrentRoom(string roomName)
+{
+	if (getRoom(roomName) != NULL)
+	{
+		currentRoom = getRoom(roomName);
+	}
+}
 

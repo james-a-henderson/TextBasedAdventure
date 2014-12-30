@@ -33,7 +33,9 @@ int main()
 	testItem.addToInventory(&game);
 	game.viewInventory();
 
-	game.getCurrentRoom()->look();
+	//game.getCurrentRoom()->look();
+	//game.getCurrentRoom()->exit("switch", &game);
+	//game.getCurrentRoom()->look();
 
 	while (game.getExit() == false)
 	{

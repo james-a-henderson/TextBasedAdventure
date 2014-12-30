@@ -32,4 +32,5 @@ public:
 	void viewInventory();
 	Room *getRoom(string roomName);
 	Room *getCurrentRoom();
+	void setCurrentRoom(string roomName);
 };

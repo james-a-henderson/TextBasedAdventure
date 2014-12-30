@@ -20,16 +20,17 @@ class Room
 protected:
 	string roomName;
 	string description;
+	string connectedRoom; //for test purposes
 	vector<Item> roomItems;
 public:
 	Room(string sName, string sDescription);
+	Room(string sName, string sDescritpion, string sConnectedRoom);//for test purposes
 	void removeObject(string objectName);
 	vector<string> getCallStrings();
 	string getRoomName();
 	string getDescription();
 	void setRoomName(string nName);
 	void setDescription(string nDescription);
-	void enter();
 	void exit(string command, GameState *game);
 	void look();
 };
