@@ -31,7 +31,11 @@ int main()
 	vector<string> testVec{"Test", "test item"};
 	Item testItem(testName, testDescription, testVec);
 	testItem.addToInventory(&game);
+
 	game.viewInventory();
+	game.dropItem("Test Item");
+	game.viewInventory();
+	game.getCurrentRoom()->viewItems();
 
 	//game.getCurrentRoom()->look();
 	//game.getCurrentRoom()->exit("switch", &game);

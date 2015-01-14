@@ -62,3 +62,22 @@ void Room::exit(string command, GameState *game)
 		game->setCurrentRoom(connectedRoom);
 	}
 }
+
+/*
+Adds an item to the room.
+
+Used when a player drops an item, among other uses.
+*/
+void Room::addItem(Item newItem)
+{
+	roomItems.push_back(newItem);
+}
+
+void Room::viewItems()
+{
+	cout << "Items in the room:\n";
+	for (vector<Item>::iterator it = roomItems.begin(); it != roomItems.end(); ++it)
+	{
+		cout << it->getItemName() << '\n';
+	}
+}

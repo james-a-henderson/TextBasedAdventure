@@ -33,4 +33,6 @@ public:
 	void setDescription(string nDescription);
 	void exit(string command, GameState *game);
 	void look();
+	void addItem(Item i);
+	void viewItems(); //for test purposes
 };

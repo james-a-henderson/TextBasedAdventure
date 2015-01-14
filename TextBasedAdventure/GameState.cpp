@@ -41,17 +41,40 @@ void GameState::setExit()
 	exit = true;
 }
 
-void GameState::addItem(Item *item)
+/*
+adds item to inventory
+*/
+void GameState::addItem(Item newItem)
 {
-	inventory.push_back(*item);
+	inventory.push_back(newItem);
 }
 
+/*
+adds the specified item to the current room and removes it from the inventory
+*/
+void GameState::dropItem(string itemName)
+{
+	for (int i = 0; i < inventory.size(); i++)
+	{
+		if (inventory.at(i).getItemName() == itemName)
+		{
+			getCurrentRoom()->addItem(inventory.at(i));
+
+			inventory.erase(inventory.begin() + i);
+
+			break;
+		}
+	}
+	
+}
 
 /*
 To Do: Modify to show first callString
 */
 void GameState::viewInventory()
 {
+	cout << "Items in your inventory:\n";
+
 	for (vector<Item>::size_type i = 0; i != inventory.size(); i++)
 	{
 		cout << inventory.at(i).getItemName() << '\n';

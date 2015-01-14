@@ -56,5 +56,5 @@ Do NOT use when picking up an item from the ground (use Item::pickup instead)
 */
 void Item::addToInventory(GameState *game)
 {
-	game->addItem(this);
+	game->addItem(*this);
 }

@@ -28,9 +28,10 @@ public:
 	bool getExit();
 	void setExit(bool nExit);
 	void setExit();
-	void addItem(Item *item);
+	void addItem(Item newItem);
 	void viewInventory();
 	Room *getRoom(string roomName);
 	Room *getCurrentRoom();
 	void setCurrentRoom(string roomName);
+	void dropItem(string itemName);
 };
