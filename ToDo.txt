@@ -1,7 +1,4 @@
-Create Basic Room
 
-Change item & gameobject to interface format
 
-Add item pickup and drop
 
-test room and item
+Possibly make it so that input is processed by the player's items and current room

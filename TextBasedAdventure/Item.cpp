@@ -58,3 +58,8 @@ void Item::addToInventory(GameState *game)
 {
 	game->addItem(*this);
 }
+
+void Item::processInput(const vector<string> * inputVec)
+{
+
+}

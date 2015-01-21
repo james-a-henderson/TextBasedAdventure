@@ -73,11 +73,27 @@ void Room::addItem(Item newItem)
 	roomItems.push_back(newItem);
 }
 
+/*
+Displays all of the items in the room
+*/
 void Room::viewItems()
 {
 	cout << "Items in the room:\n";
 	for (vector<Item>::iterator it = roomItems.begin(); it != roomItems.end(); ++it)
 	{
 		cout << it->getItemName() << '\n';
+	}
+}
+
+/*
+processes input for all items in the room
+*/
+void Room::processInput(const vector<string> *inputVec)
+{
+
+	//process input for all items in the room
+	for (vector<Item>::iterator it = roomItems.begin(); it != roomItems.end(); ++it)
+	{
+		it->processInput(inputVec);
 	}
 }

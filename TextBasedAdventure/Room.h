@@ -35,4 +35,5 @@ public:
 	void look();
 	void addItem(Item i);
 	void viewItems(); //for test purposes
+	void processInput(const vector<string> *inputVec); //process input related to the room
 };

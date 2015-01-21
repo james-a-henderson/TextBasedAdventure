@@ -32,4 +32,5 @@ public:
 	void setItemName(string nName);
 	void setDescription(string nDescription);
 	void look();
+	void processInput(const vector<string> *inputVec); //process input related to the item
 };
