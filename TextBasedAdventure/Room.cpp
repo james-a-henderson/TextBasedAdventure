@@ -47,7 +47,7 @@ void Room::look()
 }
 
 
-void Room::exit(string command, GameState *game)
+void Room::exit(string command, GameState* game)
 {
 	if (boost::iequals(command, "a name"))
 	{
@@ -61,6 +61,8 @@ void Room::exit(string command, GameState *game)
 	{
 		game->setCurrentRoom(connectedRoom);
 	}
+
+
 }
 
 /*
@@ -88,12 +90,18 @@ void Room::viewItems()
 /*
 processes input for all items in the room
 */
-void Room::processInput(const vector<string> *inputVec)
+bool Room::processInput(const vector<string> *inputVec)
 {
-
+	bool foundInput = false;
 	//process input for all items in the room
 	for (vector<Item>::iterator it = roomItems.begin(); it != roomItems.end(); ++it)
 	{
-		it->processInput(inputVec);
+		if (it->processInput(inputVec) == true)
+		{
+			foundInput = true;
+			break;
+		}
 	}
+
+	return foundInput;
 }

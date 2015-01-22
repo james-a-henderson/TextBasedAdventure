@@ -18,10 +18,11 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 using namespace std;
 
-void processInput(string Input, GameState * game);
+void processInput(string Input, GameState* game);
 
 int main()
 {

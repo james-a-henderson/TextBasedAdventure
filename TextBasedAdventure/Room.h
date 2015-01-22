@@ -31,9 +31,9 @@ public:
 	string getDescription();
 	void setRoomName(string nName);
 	void setDescription(string nDescription);
-	void exit(string command, GameState *game);
+	void exit(string command, GameState* game);
 	void look();
 	void addItem(Item i);
 	void viewItems(); //for test purposes
-	void processInput(const vector<string> *inputVec); //process input related to the room
+	bool processInput(const vector<string> *inputVec); //process input related to the room
 };

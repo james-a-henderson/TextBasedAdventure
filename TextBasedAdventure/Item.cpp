@@ -54,12 +54,14 @@ This is for when an item is directly added to the player's inventory
 
 Do NOT use when picking up an item from the ground (use Item::pickup instead)
 */
-void Item::addToInventory(GameState *game)
+void Item::addToInventory(GameState* game)
 {
 	game->addItem(*this);
+
 }
 
-void Item::processInput(const vector<string> * inputVec)
+bool Item::processInput(const vector<string> * inputVec)
 {
-
+	return false;
+	
 }

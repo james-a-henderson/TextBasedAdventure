@@ -20,7 +20,7 @@ private:
 	bool exit; //default false
 	vector<Item> inventory; //default empty
 	string currentRoomName;
-	Room *currentRoom;
+	int currentRoomIndex;
 	vector<Room> roomList;
 
 public:

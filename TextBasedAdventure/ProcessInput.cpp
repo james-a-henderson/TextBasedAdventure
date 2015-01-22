@@ -32,7 +32,7 @@ else if(inputVec.at(wordNum) == word)
 
 */
 
-void processInput(string input, GameState * game)
+void processInput(string input, GameState* game)
 {
 	//Splits each word in the input string into a seperate string,
 	//which are then stored in the vector inputVec.
@@ -80,4 +80,6 @@ void processInput(string input, GameState * game)
 	{
 		cout << "You do not know how to " << input << ".\n";
 	}
+
+
 }

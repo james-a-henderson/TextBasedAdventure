@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 
+
 #ifndef GameState_h
 #define GameState_h
 #include "GameState.h"
@@ -21,7 +22,7 @@ GameState::GameState()
 	roomList.push_back(Room("A Name", "A Description", "Another Room"));
 	roomList.push_back(Room("Another Room", "Some Description", "A Name"));
 
-	currentRoom = &roomList.front();
+	currentRoomIndex = 0;
 }
 
 //gets the value of exit
@@ -83,7 +84,7 @@ void GameState::viewInventory()
 
 Room* GameState::getCurrentRoom()
 {
-	return currentRoom;
+	return &roomList.at(currentRoomIndex);
 }
 
 
@@ -93,7 +94,7 @@ if room cannot be found, returns null
 */
 Room* GameState::getRoom(string roomName)
 {
-	for (vector<string>::size_type i = 0; i != roomList.size(); i++)
+	for (vector<Room>::size_type i = 0; i != roomList.size(); i++)
 	{
 		if (roomList.at(i).getRoomName() == roomName)
 		{
@@ -110,9 +111,21 @@ sets the current room to the room with the name roomName
 */
 void GameState::setCurrentRoom(string roomName)
 {
-	if (getRoom(roomName) != NULL)
+	bool success = false; //test purposes
+
+	for (vector<Room>::size_type i = 0; i != roomList.size(); i++)
 	{
-		currentRoom = getRoom(roomName);
+		if (roomList.at(i).getRoomName() == roomName)
+		{
+			currentRoomIndex = i;
+			success = true; //test purposes
+		}
+	}
+
+	//error message for test purposes
+	if (!success)
+	{
+		cout << "Error: Room not found\n";
 	}
 }
 
