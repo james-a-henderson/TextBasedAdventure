@@ -38,9 +38,9 @@ int main()
 	game.viewInventory();
 	game.getCurrentRoom()->viewItems();
 
-	//game.getCurrentRoom()->look();
-	//game.getCurrentRoom()->exit("switch", &game);
-	//game.getCurrentRoom()->look();
+	game.getCurrentRoom()->look();
+	game.getCurrentRoom()->exit("switch", &game);
+	game.getCurrentRoom()->look();
 
 	while (game.getExit() == false)
 	{

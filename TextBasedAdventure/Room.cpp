@@ -36,19 +36,31 @@ Room::Room(string sName, string sDescription, string sConnectedRoom)
 	connectedRoom = sConnectedRoom;
 }
 
+/*
+Returns the room name
+*/
 string Room::getRoomName()
 {
 	return roomName;
 }
 
+/*
+Prints out the description of the current room
+*/
 void Room::look()
 {
 	cout << description << '\n';
 }
 
 
+/*
+Changes the current room to annother room based on the command issued.
+
+Feel free to override this function. It will probably be necessary
+*/
 void Room::exit(string command, GameState* game)
 {
+	//This is currently testing code. Will update
 	if (boost::iequals(command, "a name"))
 	{
 		game->setCurrentRoom("A Name");

@@ -21,25 +21,39 @@ Item::Item(string nItemName, string nDescription, vector<string> sCallStrings)
 	callStrings = callStrings;
 }
 
+/*
+returns the descritpion of the item
+*/
 string Item::getDescription()
 {
 	return description;
 }
 
+/*
+set the item descritption
+*/
+void Item::setDescription(string nDescription)
+{
+	description = nDescription;
+}
+
+/*
+returns the item name
+*/
 string Item::getItemName()
 {
 	return itemName;
 }
 
+/*
+set the name of the item
+*/
 void Item::setItemName(string nItemName)
 {
 	itemName = nItemName;
 }
 
-void Item::setDescription(string nDescription)
-{
-	description = nDescription;
-}
+
 
 /*
 displays the description of the item when the player types "look at [itemName]"
@@ -60,6 +74,9 @@ void Item::addToInventory(GameState* game)
 
 }
 
+/*
+processes user input
+*/
 bool Item::processInput(const vector<string> * inputVec)
 {
 	return false;

@@ -12,31 +12,43 @@ using namespace std;
 
 
 
-//Includes variables that record all parts of the game state
-
+/*
+Includes variables that record all parts of the game state
+*/
 GameState::GameState()
 {
-	exit = false;
-	//add all rooms here
-	//ROOM NAMES MUST BE UNIQUE!!!
+	exit = false; //when exit is true, the game will exit
+
+	/*
+	add all rooms here
+	ROOM NAMES MUST BE UNIQUE!!!
+	*/
 	roomList.push_back(Room("A Name", "A Description", "Another Room"));
 	roomList.push_back(Room("Another Room", "Some Description", "A Name"));
 
 	currentRoomIndex = 0;
 }
 
-//gets the value of exit
+/*
+gets the value of exit
+*/
 bool GameState::getExit()
 {
 	return exit;
 }
 
-//sets the value of exit to nExit
+
+/*
+sets the value of exit to nExit
+*/
 void GameState::setExit(bool nExit)
 {
 	exit = nExit;
 }
 
+/*
+sets the bvalue of exit to true
+*/
 void GameState::setExit()
 {
 	exit = true;
@@ -82,6 +94,9 @@ void GameState::viewInventory()
 	}
 }
 
+/*
+returns a pointer of the current room
+*/
 Room* GameState::getCurrentRoom()
 {
 	return &roomList.at(currentRoomIndex);
