@@ -1,4 +1,22 @@
+Immediate Future:
+
+Add proper deconstructors for the various objects (mostly to learn how to do it)
 
 
+
+Soonish:
 
 Possibly make it so that input is processed by the player's items and current room
+
+
+
+Eventually:
+
+Add saving
+
+Create a basic game to show off everything
+
+
+Maybe:
+
+Move processInput to the main method (Doesn't make a huge difference either way)
