@@ -73,6 +73,13 @@ void processInput(string input, GameState* game)
 	else if (boost::iequals(inputVec.at(0), "switch"))
 	{
 		game->getCurrentRoom()->exit("switch", game);
+
+		cout << "You switch rooms.\n";
+	}
+	else if (inputVec.size() == 4 && boost::iequals(inputVec.at(0), "turn") && boost::iequals(inputVec.at(1), "down") &&
+		boost::iequals(inputVec.at(2), "for") && boost::iequals(inputVec.at(3), "what"))
+	{
+		cout << "That song is terrible.\n";
 	}
 	
 	//default case. If input does not match any specific case, this executes.

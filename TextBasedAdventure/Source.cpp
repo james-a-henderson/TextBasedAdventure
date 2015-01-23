@@ -27,6 +27,8 @@ void processInput(string Input, GameState* game);
 int main()
 {
 	GameState game;
+
+
 	string testName = "Test Item";
 	string testDescription = "A test Item";
 	vector<string> testVec{"Test", "test item"};
