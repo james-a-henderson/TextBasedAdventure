@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <vector>
 
 
 #ifndef GameState_h
@@ -144,3 +145,21 @@ void GameState::setCurrentRoom(string roomName)
 	}
 }
 
+/*
+Processes input for all items in the inventory
+*/
+bool GameState::processInventoryInput(const vector<string> *inputVec)
+{
+	bool foundInput = false;
+	//process input for all items in the inventory
+	for (vector<Item>::iterator it = inventory.begin(); it != inventory.end(); ++it)
+	{
+		if (it->processInput(inputVec) == true)
+		{
+			foundInput = true;
+			break;
+		}
+	}
+
+	return foundInput;
+}

@@ -30,6 +30,7 @@ public:
 	void setExit();
 	void addItem(Item newItem);
 	void viewInventory();
+	bool processInventoryInput(const vector<string> *inputVec);
 	Room *getRoom(string roomName);
 	Room *getCurrentRoom();
 	void setCurrentRoom(string roomName);

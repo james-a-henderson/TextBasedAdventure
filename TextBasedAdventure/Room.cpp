@@ -100,12 +100,20 @@ void Room::viewItems()
 }
 
 /*
-processes input for all items in the room
+processes input for all items in the room, and the room itself
 */
 bool Room::processInput(const vector<string> *inputVec)
 {
 	bool foundInput = false;
 	//process input for all items in the room
+
+	//sample code
+	if (inputVec->size() == 1 && boost::iequals(inputVec->at(0), "dance"))
+	{
+		cout << "You dance the night away\n";
+		return true;
+	}
+
 	for (vector<Item>::iterator it = roomItems.begin(); it != roomItems.end(); ++it)
 	{
 		if (it->processInput(inputVec) == true)

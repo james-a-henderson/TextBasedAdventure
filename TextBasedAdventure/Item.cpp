@@ -75,10 +75,12 @@ void Item::addToInventory(GameState* game)
 }
 
 /*
-processes user input
+processes user input for this item
 */
 bool Item::processInput(const vector<string> * inputVec)
 {
+
+
 	return false;
 	
 }
