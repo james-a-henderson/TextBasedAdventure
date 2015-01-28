@@ -43,7 +43,7 @@ void processInput(string input, GameState* game)
 	bool inputProcessed; //stores whether or not an item or room processed the input
 	
 	//processes input in the current room
-	inputProcessed = game->getCurrentRoom()->processInput(&inputVec);
+	inputProcessed = game->getCurrentRoom()->processInput(game, &inputVec);
 
 
 	if (!inputProcessed) //if there was no command relevent to the current room
@@ -91,7 +91,12 @@ void processInput(string input, GameState* game)
 			game->getCurrentRoom()->look();
 		}
 
-		else if (boost::iequals(inputVec.at(0), "switch"))
+		else if (inputVec.size() == 2 && boost::iequals(inputVec.at(0), "view") && boost::iequals(inputVec.at(1), "inventory"))
+		{
+			game->viewInventory();
+		}
+
+		else if (boost::iequals(inputVec.at(0), "switch")) //test
 		{
 			game->getCurrentRoom()->exit("switch", game);
 

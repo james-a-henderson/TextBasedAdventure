@@ -154,7 +154,7 @@ bool GameState::processInventoryInput(const vector<string> *inputVec)
 	//process input for all items in the inventory
 	for (vector<Item>::iterator it = inventory.begin(); it != inventory.end(); ++it)
 	{
-		if (it->processInput(inputVec) == true)
+		if (it->processInput(this, inputVec) == true)
 		{
 			foundInput = true;
 			break;
@@ -162,4 +162,20 @@ bool GameState::processInventoryInput(const vector<string> *inputVec)
 	}
 
 	return foundInput;
+}
+
+/*
+checks if an item is in the inventory based on the item name
+
+returns true if the item is in the inventory, false otherwise
+*/
+bool GameState::itemInInventory(string itemName)
+{
+	for (vector<Item>::iterator it = inventory.begin(); it != inventory.end(); ++it)
+	{
+		if (it->getItemName() == itemName)
+			return true;
+	}
+
+	return false;
 }

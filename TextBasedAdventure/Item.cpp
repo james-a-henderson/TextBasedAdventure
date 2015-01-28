@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <boost/algorithm/string.hpp>
 
 #ifndef Item_h
 #define Item_h
@@ -18,7 +19,7 @@ Item::Item(string nItemName, string nDescription, vector<string> sCallStrings)
 {
 	itemName = nItemName;
 	description = nDescription;
-	callStrings = callStrings;
+	callStrings = sCallStrings;
 }
 
 /*
@@ -77,10 +78,40 @@ void Item::addToInventory(GameState* game)
 /*
 processes user input for this item
 */
-bool Item::processInput(const vector<string> * inputVec)
+bool Item::processInput(GameState* game, const vector<string> * inputVec)
 {
-
+	if (inputVec->size() == 2 && boost::iequals(inputVec->at(0), "drop") && verifyCallString(inputVec->at(1)))
+	{
+		game->dropItem(itemName);
+		return true;
+	}
+	else if (inputVec->size() == 3 && boost::iequals(inputVec->at(0) + " " + inputVec->at(1), "pick up") && verifyCallString(inputVec->at(2)))
+	{
+		game->getCurrentRoom()->pickUpItem(itemName, game);
+		return true;
+	}
+	else if (verifyCallString(inputVec->at(0)))
+	{
+		cout << "VerifyCallString works!\n";
+		return true;
+	}
 
 	return false;
 	
+}
+
+/*
+checks if a string is part of the item's call strings, ignoring case
+
+returns true if the string is in the callString vector, false otherwise
+*/
+bool Item::verifyCallString(string checkString)
+{
+	for (vector<string>::iterator it = callStrings.begin(); it != callStrings.end(); ++it)
+	{
+		if (boost::iequals(*it, checkString))
+			return true;
+	}
+
+	return false;
 }

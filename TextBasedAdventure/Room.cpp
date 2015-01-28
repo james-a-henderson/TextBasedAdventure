@@ -50,6 +50,7 @@ Prints out the description of the current room
 void Room::look()
 {
 	cout << description << '\n';
+	viewItems();
 }
 
 
@@ -102,7 +103,7 @@ void Room::viewItems()
 /*
 processes input for all items in the room, and the room itself
 */
-bool Room::processInput(const vector<string> *inputVec)
+bool Room::processInput(GameState * game, const vector<string> *inputVec)
 {
 	bool foundInput = false;
 	//process input for all items in the room
@@ -116,7 +117,7 @@ bool Room::processInput(const vector<string> *inputVec)
 
 	for (vector<Item>::iterator it = roomItems.begin(); it != roomItems.end(); ++it)
 	{
-		if (it->processInput(inputVec) == true)
+		if (it->processInput(game, inputVec) == true)
 		{
 			foundInput = true;
 			break;
@@ -124,4 +125,22 @@ bool Room::processInput(const vector<string> *inputVec)
 	}
 
 	return foundInput;
+}
+
+/*
+removes the item specified by itemName from the room and puts it in the player's inventory
+*/
+void Room::pickUpItem(string itemName, GameState* game)
+{
+	for (int i = 0; i < roomItems.size(); i++)
+	{
+		if (roomItems.at(i).getItemName() == itemName)
+		{
+			game->addItem(roomItems.at(i));
+
+			roomItems.erase(roomItems.begin() + i);
+
+			break;
+		}
+	}
 }

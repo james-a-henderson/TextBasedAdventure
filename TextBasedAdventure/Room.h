@@ -25,7 +25,8 @@ protected:
 public:
 	Room(string sName, string sDescription);
 	Room(string sName, string sDescritpion, string sConnectedRoom);//for test purposes
-	void removeObject(string objectName);
+	void removeItem(string itemName);
+	void pickUpItem(string itemName, GameState* game);
 	vector<string> getCallStrings();
 	string getRoomName();
 	string getDescription();
@@ -35,5 +36,5 @@ public:
 	void look();
 	void addItem(Item i);
 	void viewItems(); //for test purposes
-	bool processInput(const vector<string> *inputVec); //process input related to the room
+	bool processInput(GameState* game, const vector<string> *inputVec); //process input related to the room
 };

@@ -31,6 +31,7 @@ public:
 	void addItem(Item newItem);
 	void viewInventory();
 	bool processInventoryInput(const vector<string> *inputVec);
+	bool itemInInventory(string itemName);
 	Room *getRoom(string roomName);
 	Room *getCurrentRoom();
 	void setCurrentRoom(string roomName);

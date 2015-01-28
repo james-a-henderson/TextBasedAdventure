@@ -21,10 +21,9 @@ protected:
 
 public:
 	Item(string nItemName, string nDescription, vector<string> sCallStrings);
-	Item(string sName, string sDescription, string sPickUpText, string sDropText,bool sPickUpable, bool sDropable);
+	Item(string sName, string sDescription, string sPickUpText, string sDropText, bool sPickUpable, bool sDropable);
 	void addToInventory(GameState* game);
 	void pickup(GameState* game);
-	void drop(GameState* game);
 	void use(Item useWith);
 	string getItemName();
 	string getDescription();
@@ -32,5 +31,6 @@ public:
 	void setItemName(string nName);
 	void setDescription(string nDescription);
 	void look();
-	bool processInput(const vector<string> *inputVec); //process input related to the item
+	bool processInput(GameState* game, const vector<string> *inputVec); //process input related to the item
+	bool verifyCallString(string checkString);
 };
