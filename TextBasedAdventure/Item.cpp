@@ -3,10 +3,9 @@
 #include <iostream>
 #include <boost/algorithm/string.hpp>
 
-#ifndef Item_h
-#define Item_h
 #include "Item.h"
-#endif
+#include "GameState.h"
+#include "Room.h"
 
 using namespace std;
 /*
@@ -115,3 +114,5 @@ bool Item::verifyCallString(string checkString)
 
 	return false;
 }
+
+

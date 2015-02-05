@@ -1,27 +1,20 @@
+#ifndef GAME_STATE_H
+#define GAME_STATE_H
+#endif
+
 #include <vector>
-
-#ifndef Item_h
-#define Item_h
-#include "Item.h"
-#endif
-
-#ifndef Room_h
-#define Room_h
-#include "Room.h"
-#endif
-
+#include <string>
 class Room;
 class Item;
-using namespace std;
 
 class GameState
 {
 private: 
 	bool exit; //default false
-	vector<Item> inventory; //default empty
-	string currentRoomName;
+	std::vector<Item> inventory; //default empty
+	std::string currentRoomName;
 	int currentRoomIndex;
-	vector<Room> roomList;
+	std::vector<Room> roomList;
 
 public:
 	GameState();
@@ -30,10 +23,10 @@ public:
 	void setExit();
 	void addItem(Item newItem);
 	void viewInventory();
-	bool processInventoryInput(const vector<string> *inputVec);
-	bool itemInInventory(string itemName);
-	Room *getRoom(string roomName);
+	bool processInventoryInput(const std::vector<std::string> *inputVec);
+	bool itemInInventory(std::string itemName);
+	Room *getRoom(std::string roomName);
 	Room *getCurrentRoom();
-	void setCurrentRoom(string roomName);
-	void dropItem(string itemName);
+	void setCurrentRoom(std::string roomName);
+	void dropItem(std::string itemName);
 };

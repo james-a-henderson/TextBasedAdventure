@@ -3,10 +3,9 @@
 #include <vector>
 
 
-#ifndef GameState_h
-#define GameState_h
 #include "GameState.h"
-#endif
+#include "Item.h"
+#include "Room.h"
 
 #include <boost/algorithm/string.hpp>
 using namespace std;
