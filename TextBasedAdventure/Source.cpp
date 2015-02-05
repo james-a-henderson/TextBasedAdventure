@@ -1,20 +1,9 @@
 #include <iostream>
 #include <string>
 
-#ifndef GameState_h
-#define GameState_h
 #include "GameState.h"
-#endif
-
-#ifndef Item_h
-#define Item_h
 #include "Item.h"
-#endif
-
-#ifndef Room_h
-#define Room_h
 #include "Room.h"
-#endif
 
 #include <vector>
 #include <string>

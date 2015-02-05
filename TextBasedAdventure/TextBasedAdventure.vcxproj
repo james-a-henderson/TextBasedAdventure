@@ -85,6 +85,7 @@
     <ClCompile Include="ProcessInput.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="VerifyCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />

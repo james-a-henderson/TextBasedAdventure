@@ -9,7 +9,8 @@
 #include <vector>
 using namespace std;
 
-
+bool verifyCommand(string command, vector<string> * inputVec);
+bool verifyCommand(string command, vector<string>* inputVec, int start, int end);
 //Processes input
 
 /*
@@ -57,17 +58,17 @@ void processInput(string input, GameState* game)
 	if (!inputProcessed) //if there was no command relevent to the inventory or current room
 	{
 		//Exits game if input is exit (ignoring case).
-		if (boost::iequals(inputVec.at(0), "exit"))
+		if (verifyCommand("exit", &inputVec))
 		{
 			game->setExit(true);
 		}
 
-		else if (inputVec.size() == 1 && boost::iequals(inputVec.at(0), "dance"))
+		else if (verifyCommand("dance" , &inputVec))
 		{
 			cout << "Why would you do that?\n";
 		}
 
-		else if (boost::iequals(inputVec.at(0), "jump"))
+		else if (verifyCommand("jump", &inputVec, 0, 0))
 		{
 			if (inputVec.size() == 1)
 				cout << "You jump in place\n";
@@ -79,32 +80,31 @@ void processInput(string input, GameState* game)
 
 				cout << "style\n";
 			}
-			else if (boost::iequals(inputVec.at(1), "up"))
+			else if (verifyCommand("up", &inputVec, 1, 1))
 				cout << "You jump straight up.\n";
-			else if (boost::iequals(inputVec.at(1), "down"))
+			else if (verifyCommand("down", &inputVec, 1, 1))
 				cout << "You jump straight down to your death.\n";
 			else
 				cout << "You do not know how to jump " << inputVec.at(1) << " style.\n";
 		}
 
-		else if (boost::iequals(inputVec.at(0), "look"))
+		else if (verifyCommand("look", &inputVec))
 		{
 			game->getCurrentRoom()->look();
 		}
 
-		else if (inputVec.size() == 2 && boost::iequals(inputVec.at(0), "view") && boost::iequals(inputVec.at(1), "inventory"))
+		else if (verifyCommand("view inventory", &inputVec))
 		{
 			game->viewInventory();
 		}
 
-		else if (boost::iequals(inputVec.at(0), "switch")) //test
+		else if (verifyCommand("switch", &inputVec)) //test
 		{
 			game->getCurrentRoom()->exit("switch", game);
 
 			cout << "You switch rooms.\n";
 		}
-		else if (inputVec.size() == 4 && boost::iequals(inputVec.at(0), "turn") && boost::iequals(inputVec.at(1), "down") &&
-			boost::iequals(inputVec.at(2), "for") && boost::iequals(inputVec.at(3), "what"))
+		else if (verifyCommand("turn down for what", &inputVec))
 		{
 			cout << "That song is terrible.\n";
 		}
