@@ -2,6 +2,7 @@
 #define ITEM_H
 #endif
 
+#include <array>
 #include <string>
 #include <vector>
 
@@ -31,7 +32,7 @@ public:
 	void setItemName(std::string nName);
 	void setDescription(std::string nDescription);
 	void look();
-	bool processInput(GameState* game, const std::vector<std::string> *inputVec); //process input related to the item
+	bool processInput(GameState* game, std::string input); //process input related to the item
 	bool verifyCallString(std::string checkString);
-	int checkForCallString(const std::vector<std::string> * inputVec);
+	std::array<int, 2> checkForCallString(const std::vector<std::string> * inputVec);
 };

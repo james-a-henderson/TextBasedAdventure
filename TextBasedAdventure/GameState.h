@@ -23,7 +23,7 @@ public:
 	void setExit();
 	void addItem(Item newItem);
 	void viewInventory();
-	bool processInventoryInput(const std::vector<std::string> *inputVec);
+	bool processInventoryInput(std::string input);
 	bool itemInInventory(std::string itemName);
 	Room *getRoom(std::string roomName);
 	Room *getCurrentRoom();

@@ -20,7 +20,7 @@ int main()
 
 	string testName = "Test Item";
 	string testDescription = "A test Item";
-	vector<string> testVec{"Test", "test item"};
+	vector<string> testVec{"Test item", "test"};
 	Item testItem(testName, testDescription, testVec);
 	testItem.addToInventory(&game);
 

@@ -28,5 +28,5 @@ public:
 	void look();
 	void addItem(Item i);
 	void viewItems(); //for test purposes
-	bool processInput(GameState* game, const std::vector<std::string> *inputVec); //process input related to the room
+	bool processInput(GameState* game, std::string input); //process input related to the room
 };

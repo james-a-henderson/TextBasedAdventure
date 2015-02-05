@@ -1,7 +1,9 @@
+#include <array>
 #include <string>
 #include <vector>
 #include <iostream>
 #include <boost/algorithm/string.hpp>
+#include <boost/algorithm/searching/knuth_morris_pratt.hpp>
 
 #include "Item.h"
 #include "GameState.h"
@@ -77,19 +79,19 @@ void Item::addToInventory(GameState* game)
 /*
 processes user input for this item
 */
-bool Item::processInput(GameState* game, const vector<string> * inputVec)
+bool Item::processInput(GameState* game, string input)
 {
-	if (inputVec->size() == 2 && boost::iequals(inputVec->at(0), "drop") && verifyCallString(inputVec->at(1)))
+	if (boost::iequals(input.substr(0,5), "drop ") && verifyCallString(input.substr(5, input.length())))
 	{
 		game->dropItem(itemName);
 		return true;
 	}
-	else if (inputVec->size() == 3 && boost::iequals(inputVec->at(0) + " " + inputVec->at(1), "pick up") && verifyCallString(inputVec->at(2)))
+	else if (boost::iequals(input.substr(0, 8), "pick up ") && verifyCallString(input.substr(8, input.length())))
 	{
 		game->getCurrentRoom()->pickUpItem(itemName, game);
 		return true;
 	}
-	else if (verifyCallString(inputVec->at(0)))
+	else if (verifyCallString(input))
 	{
 		cout << "VerifyCallString works!\n";
 		return true;
@@ -115,4 +117,19 @@ bool Item::verifyCallString(string checkString)
 	return false;
 }
 
+/*
+array<int, 2> Item::checkForCallString(const vector<string> * inputVec)
+{
+	array<int, 2> returnArray;
+	for (int i = 0; i < callStrings.size(); i++)
+	{
+		for (int j = 0; j < inputVec->size(); j++)
+		{
+			if (boost::iequals(callStrings.at(i).at(0), inputVec->at(j)))
+			{
 
+			}
+		}
+	}
+}
+*/

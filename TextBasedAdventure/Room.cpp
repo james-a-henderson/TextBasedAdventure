@@ -94,13 +94,13 @@ void Room::viewItems()
 /*
 processes input for all items in the room, and the room itself
 */
-bool Room::processInput(GameState * game, const vector<string> *inputVec)
+bool Room::processInput(GameState * game, string input)
 {
 	bool foundInput = false;
 	//process input for all items in the room
 
 	//sample code
-	if (inputVec->size() == 1 && boost::iequals(inputVec->at(0), "dance"))
+	if (boost::iequals("dance", input))
 	{
 		cout << "You dance the night away\n";
 		return true;
@@ -108,7 +108,7 @@ bool Room::processInput(GameState * game, const vector<string> *inputVec)
 
 	for (vector<Item>::iterator it = roomItems.begin(); it != roomItems.end(); ++it)
 	{
-		if (it->processInput(game, inputVec) == true)
+		if (it->processInput(game, input) == true)
 		{
 			foundInput = true;
 			break;

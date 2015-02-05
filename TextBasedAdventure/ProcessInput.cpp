@@ -45,13 +45,13 @@ void processInput(string input, GameState* game)
 	bool inputProcessed; //stores whether or not an item or room processed the input
 	
 	//processes input in the current room
-	inputProcessed = game->getCurrentRoom()->processInput(game, &inputVec);
+	inputProcessed = game->getCurrentRoom()->processInput(game, input);
 
 
 	if (!inputProcessed) //if there was no command relevent to the current room
 	{
 		//process input in the inventory
-		inputProcessed = game->processInventoryInput(&inputVec);
+		inputProcessed = game->processInventoryInput(input);
 	}
 
 
