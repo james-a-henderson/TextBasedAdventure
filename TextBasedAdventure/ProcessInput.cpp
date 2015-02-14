@@ -2,9 +2,11 @@
 #include "Item.h"
 #include "Room.h"
 
+
 #include <string>
 #include <iostream>
 
+#include <boost/range/algorithm/count.hpp>
 #include <boost/algorithm/string.hpp>
 #include <vector>
 using namespace std;
@@ -41,6 +43,8 @@ void processInput(string input, GameState* game)
 	vector<string> inputVec;
 	boost::split(inputVec, input, boost::is_any_of(" "), boost::token_compress_off);
 
+	int wordCount = boost::count(input, ' ');
+
 
 	bool inputProcessed; //stores whether or not an item or room processed the input
 	
@@ -58,19 +62,19 @@ void processInput(string input, GameState* game)
 	if (!inputProcessed) //if there was no command relevent to the inventory or current room
 	{
 		//Exits game if input is exit (ignoring case).
-		if (verifyCommand("exit", &inputVec))
+		if (boost::iequals("exit", input))
 		{
 			game->setExit(true);
 		}
 
-		else if (verifyCommand("dance" , &inputVec))
+		else if (boost::iequals("dance", input))
 		{
 			cout << "Why would you do that?\n";
 		}
 
-		else if (verifyCommand("jump", &inputVec, 0, 0))
+		else if (boost::iequals("jump", input.substr(0, 4)))
 		{
-			if (inputVec.size() == 1)
+			if (input.length() == 4)
 				cout << "You jump in place\n";
 			else if (inputVec.size() > 2)
 			{
@@ -80,31 +84,31 @@ void processInput(string input, GameState* game)
 
 				cout << "style\n";
 			}
-			else if (verifyCommand("up", &inputVec, 1, 1))
+			else if (boost::iequals(" up", input.substr(4, 3)))
 				cout << "You jump straight up.\n";
-			else if (verifyCommand("down", &inputVec, 1, 1))
+			else if (boost::iequals(" down", input.substr(4, 5)))
 				cout << "You jump straight down to your death.\n";
 			else
 				cout << "You do not know how to jump " << inputVec.at(1) << " style.\n";
 		}
 
-		else if (verifyCommand("look", &inputVec))
+		else if (boost::iequals("look", input))
 		{
 			game->getCurrentRoom()->look();
 		}
 
-		else if (verifyCommand("view inventory", &inputVec))
+		else if (boost::iequals("view inventory", input))
 		{
 			game->viewInventory();
 		}
 
-		else if (verifyCommand("switch", &inputVec)) //test
+		else if (boost::iequals("switch", input)) //test
 		{
 			game->getCurrentRoom()->exit("switch", game);
 
 			cout << "You switch rooms.\n";
 		}
-		else if (verifyCommand("turn down for what", &inputVec))
+		else if (boost::iequals("turn down for what", input))
 		{
 			cout << "That song is terrible.\n";
 		}
